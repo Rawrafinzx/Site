@@ -8,6 +8,7 @@
 
 <title>Frufru Project</title>
 
+
 <style>
 
 *{
@@ -31,6 +32,7 @@ color:white;
 }
 
 
+
 /* ESTRELAS */
 
 .stars{
@@ -42,6 +44,7 @@ overflow:hidden;
 z-index:-1;
 
 }
+
 
 
 .star{
@@ -61,6 +64,7 @@ brilho 2s infinite alternate;
 }
 
 
+
 @keyframes move{
 
 to{
@@ -70,6 +74,7 @@ transform:translate(100px,120vh);
 }
 
 }
+
 
 
 @keyframes brilho{
@@ -123,7 +128,6 @@ object-fit:contain;
 
 
 
-
 nav{
 
 display:flex;
@@ -153,7 +157,6 @@ color:white;
 transform:translateY(-3px);
 
 }
-
 
 
 
@@ -249,7 +252,6 @@ transform:none;
 
 
 
-
 /* IMAGENS DOS CANTOS */
 
 
@@ -267,11 +269,27 @@ display:flex;
 
 justify-content:space-between;
 
-padding:0 80px;
+align-items:center;
+
+padding:0 70px;
 
 transform:translateY(-50%);
 
-pointer-events:none;
+opacity:0;
+
+animation:aparecer .8s forwards;
+
+}
+
+
+
+@keyframes aparecer{
+
+to{
+
+opacity:1;
+
+}
 
 }
 
@@ -289,8 +307,6 @@ border-radius:35px;
 
 border:1px solid #333;
 
-opacity:.8;
-
 transition:.5s;
 
 filter:drop-shadow(0 0 30px black);
@@ -303,27 +319,26 @@ filter:drop-shadow(0 0 30px black);
 
 transform:scale(1.1);
 
-opacity:1;
-
 box-shadow:0 0 40px white;
 
 }
 
+  
 
 
 
-/* LOGO GRANDE */
+/* LOGO CENTRAL */
 
 
 .logo-big img{
 
-width:220px;
+width:240px;
 
-height:220px;
+height:240px;
 
 object-fit:contain;
 
-filter:drop-shadow(0 0 30px white);
+filter:drop-shadow(0 0 50px white);
 
 transition:.4s;
 
@@ -362,6 +377,7 @@ color:transparent;
 
 
 
+
 p{
 
 max-width:650px;
@@ -373,6 +389,13 @@ font-size:20px;
 color:#aaa;
 
 }
+
+
+
+
+
+/* CARD SOBRE */
+
 
 .card{
 
@@ -390,11 +413,14 @@ width:500px;
 
 
 
+
 .card h2{
 
 font-size:45px;
 
 }
+
+
 
 
 
@@ -417,9 +443,104 @@ margin-bottom:25px;
 
 
 
+
+/* CELULAR */
+
+
+@media(max-width:900px){
+
+
+.extra-images{
+
+padding:0 15px;
+
+}
+
+
+
+.extra-images img{
+
+width:100px;
+
+height:100px;
+
+border-radius:20px;
+
+}
+
+
+
+.logo-big img{
+
+width:160px;
+
+height:160px;
+
+}
+
+
+
+h1{
+
+font-size:45px;
+
+}
+
+
+
+p{
+
+font-size:16px;
+
+padding:0 20px;
+
+}
+
+
+
+header{
+
+padding:0 20px;
+
+}
+
+
+
+nav{
+
+gap:15px;
+
+}
+
+
+
+.try{
+
+padding:10px 15px;
+
+}
+
+
+
+.card{
+
+width:90%;
+
+}
+
+
+
+}
+
+
+
+
+
+
 </style>
 
 </head>
+
 
 
 <body>
@@ -430,9 +551,7 @@ margin-bottom:25px;
 
 
 
-
 <header>
-
 
 
 <div class="logo">
@@ -469,8 +588,6 @@ Entrar no Discord ↗
 
 
 
-
-
 <main>
 
 
@@ -498,7 +615,6 @@ Entrar no Discord ↗
 
 
 
-
 <div class="logo-big">
 
 <img src="logo.png">
@@ -521,7 +637,6 @@ EM BREVE.<br>
 
 
 
-
 <p>
 
 Scripts inovadores para Roblox, feitos para desempenho e praticidade.
@@ -531,14 +646,9 @@ Scripts inovadores para Roblox, feitos para desempenho e praticidade.
 
 
 
-
 </section>
 
-
-
-
-
-
+  
 
 
 
@@ -568,7 +678,6 @@ Sobre
 
 
 
-
 <p>
 
 Quem não xita, não brilha.
@@ -585,6 +694,7 @@ Developers:
 
 
 
+
 </div>
 
 
@@ -595,9 +705,7 @@ Developers:
 
 
 
-
 </main>
-
 
 
 
@@ -617,7 +725,6 @@ let stars=document.querySelector(".stars");
 
 
 for(let i=0;i<150;i++){
-
 
 
 let s=document.createElement("div");
@@ -663,7 +770,6 @@ stars.appendChild(s);
 
 
 
-
 function page(id){
 
 
@@ -695,7 +801,7 @@ function discord(){
 
 window.open(
 
-"https://discord.gg/6T2qYzSyK6",
+"SEU_LINK_DO_DISCORD",
 
 "_blank"
 
