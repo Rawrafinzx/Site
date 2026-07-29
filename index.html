@@ -1,75 +1,718 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Meu Projeto</title>
+<title>Frufru Project</title>
 
 <style>
-body {
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 100px;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-.caixa {
-    background: #222;
-    width: 350px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 15px;
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+background:
+radial-gradient(circle at top,#171717,#020202);
+
+color:white;
+
 }
 
-button {
-    background: #5865f2;
-    color: white;
-    border: 0;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+
+/* ESTRELAS */
+
+.stars{
+
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+
 }
 
-button:hover {
-    opacity: 0.8;
+
+.star{
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+opacity:.7;
+
+animation:
+move linear infinite,
+brilho 2s infinite alternate;
+
 }
 
-#resultado {
-    margin-top: 20px;
+
+@keyframes move{
+
+to{
+
+transform:translate(100px,120vh);
+
 }
+
+}
+
+
+@keyframes brilho{
+
+from{
+
+opacity:.2;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+/* HEADER */
+
+
+header{
+
+height:85px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 70px;
+
+backdrop-filter:blur(15px);
+
+}
+
+
+
+.logo img{
+
+width:45px;
+
+height:45px;
+
+object-fit:contain;
+
+}
+
+
+
+
+nav{
+
+display:flex;
+
+gap:35px;
+
+}
+
+
+
+nav a{
+
+color:#999;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+nav a:hover{
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+
+
+
+.try{
+
+background:white;
+
+color:black;
+
+border:none;
+
+padding:14px 30px;
+
+border-radius:40px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.try:hover{
+
+transform:scale(1.1);
+
+box-shadow:0 0 30px white;
+
+}
+
+
+
+
+/* PAGINAS */
+
+
+main{
+
+height:calc(100vh - 85px);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
+
+.page{
+
+display:none;
+
+animation:entrada .5s;
+
+}
+
+
+
+.active{
+
+display:block;
+
+}
+
+
+
+@keyframes entrada{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+
+
+
+/* IMAGENS DOS CANTOS */
+
+
+.extra-images{
+
+position:absolute;
+
+top:50%;
+
+left:0;
+
+right:0;
+
+display:flex;
+
+justify-content:space-between;
+
+padding:0 80px;
+
+transform:translateY(-50%);
+
+pointer-events:none;
+
+}
+
+
+
+.extra-images img{
+
+width:260px;
+
+height:260px;
+
+object-fit:cover;
+
+border-radius:35px;
+
+border:1px solid #333;
+
+opacity:.8;
+
+transition:.5s;
+
+filter:drop-shadow(0 0 30px black);
+
+}
+
+
+
+.extra-images img:hover{
+
+transform:scale(1.1);
+
+opacity:1;
+
+box-shadow:0 0 40px white;
+
+}
+
+
+
+
+/* LOGO GRANDE */
+
+
+.logo-big img{
+
+width:220px;
+
+height:220px;
+
+object-fit:contain;
+
+filter:drop-shadow(0 0 30px white);
+
+transition:.4s;
+
+}
+
+
+
+.logo-big img:hover{
+
+transform:scale(1.1) rotate(5deg);
+
+}
+
+
+
+
+h1{
+
+font-size:80px;
+
+letter-spacing:-4px;
+
+}
+
+
+
+h1 span{
+
+background:linear-gradient(white,#666);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+p{
+
+max-width:650px;
+
+margin:25px auto;
+
+font-size:20px;
+
+color:#aaa;
+
+}
+
+.card{
+
+background:#111;
+
+border:1px solid #333;
+
+padding:40px;
+
+border-radius:30px;
+
+width:500px;
+
+}
+
+
+
+.card h2{
+
+font-size:45px;
+
+}
+
+
+
+.sobre-img img{
+
+width:180px;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:30px;
+
+border:1px solid #333;
+
+margin-bottom:25px;
+
+}
+
+
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="caixa">
 
-<h1>Meu Projeto</h1>
 
-<p>Status:</p>
+<div class="stars"></div>
 
-<button onclick="verificar()">Verificar</button>
 
-<div id="resultado"></div>
+
+
+<header>
+
+
+
+<div class="logo">
+
+<img src="logo.png">
 
 </div>
 
 
+
+
+<nav>
+
+<a onclick="page('home')">Inicio</a>
+
+<a onclick="page('sobre')">Sobre</a>
+
+</nav>
+
+
+
+
+<button class="try" onclick="discord()">
+
+Entrar no Discord ↗
+
+</button>
+
+
+
+</header>
+
+
+
+
+
+
+
+<main>
+
+
+
+
+
+<section id="home" class="page active">
+
+
+
+<div class="extra-images">
+
+
+<img src="imagem1.png">
+
+
+
+<img src="imagem2.png">
+
+
+
+</div>
+
+
+
+
+
+
+<div class="logo-big">
+
+<img src="logo.png">
+
+</div>
+
+
+
+
+
+<h1>
+
+EM BREVE.<br>
+
+<span>Frufru Project.</span>
+
+</h1>
+
+
+
+
+
+
+<p>
+
+Scripts inovadores para Roblox, feitos para desempenho e praticidade.
+
+</p>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="sobre" class="page">
+
+
+
+<div class="card">
+
+
+
+<div class="sobre-img">
+
+<img src="imagem3.png">
+
+</div>
+
+
+
+
+<h2>
+
+Sobre
+
+</h2>
+
+
+
+
+
+<p>
+
+Quem não xita, não brilha.
+
+<br><br>
+
+Developers:
+
+<br>
+
+0xdead • 6cbv • alwayshighx
+
+</p>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
 <script>
 
-function verificar(){
 
-    document.getElementById("resultado").innerHTML =
-    "Servidor respondendo...";
+
+// ESTRELAS
+
+
+let stars=document.querySelector(".stars");
+
+
+
+for(let i=0;i<150;i++){
+
+
+
+let s=document.createElement("div");
+
+
+s.className="star";
+
+
+
+let size=Math.random()*4+1;
+
+
+
+s.style.width=size+"px";
+
+
+s.style.height=size+"px";
+
+
+
+s.style.left=Math.random()*100+"%";
+
+
+s.style.top=Math.random()*100+"%";
+
+
+
+s.style.animationDuration=
+
+(5+Math.random()*15)+"s";
+
+
+
+stars.appendChild(s);
+
+
 
 }
+
+
+
+
+
+
+
+
+function page(id){
+
+
+
+document.querySelectorAll(".page")
+
+.forEach(x=>x.classList.remove("active"));
+
+
+
+document.getElementById(id)
+
+.classList.add("active");
+
+
+
+}
+
+
+
+
+
+
+
+
+function discord(){
+
+
+
+window.open(
+
+"https://discord.gg/6T2qYzSyK6",
+
+"_blank"
+
+);
+
+
+
+}
+
+
 
 </script>
 
 
+
+
+
 </body>
+
 </html>
